@@ -8,9 +8,9 @@ ENV GOPATH /go
 COPY . /go/src/gocv.io/x/gocv/
 
 WORKDIR /go/src/gocv.io/x/gocv
-RUN go build -tags example -o /build/gocv_version -i ./cmd/version/
-
+#RUN go build -tags example -o /build/gocv_version -i ./cmd/version/
+RUN go build -tags static --ldflags '-extldflags "-static"' -o /build/static_version ./cmd/version/main.go
 # add other helpful tools
-RUN go get -u github.com/posener/complete/gocomplete && gocomplete -install
+# RUN go get -u github.com/posener/complete/gocomplete && gocomplete -install
 
-CMD ["/build/gocv_version"]
+CMD ["/build/static_version"]
