@@ -1,8 +1,8 @@
 # to build this docker image:
 #   docker build .
-# FROM gocv/opencv:4.5.4
+FROM gocv/opencv:4.5.4
 # form my own opencv-static image
-FROM registry.cn-shenzhen.aliyuncs.com/wwminger/opencv:454_static
+# FROM registry.cn-shenzhen.aliyuncs.com/wwminger/opencv:454_static
 ENV GOPATH /go
 
 COPY . /go/src/gocv.io/x/gocv/
